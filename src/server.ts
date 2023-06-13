@@ -7,13 +7,13 @@ import config from './config'
 async function bootstrap() {
   try {
     await mongoose.connect(config.database_url)
-    console.log('🛢 database is connected successfully.')
+    // console.log('🛢 database is connected successfully.')
 
     app.listen(config.port, () => {
-      console.log(`Example app listening on port ${config.port}`)
+      // console.log(`Example app listening on port ${config.port}`)
     })
   } catch {
-    console.error('Failed to connect database')
+    // console.error('Failed to connect database')
   }
 }
 
