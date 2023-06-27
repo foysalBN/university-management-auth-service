@@ -1,20 +1,26 @@
-import cors from 'cors'
-import express, { Application, Request, Response } from 'express'
-import userRouter from './app/modules/users/users.route'
-const app: Application = express()
+import cors from 'cors';
+import express, { Application } from 'express';
+import router from './app/routes';
+import globalErrorHandler from './middlewares/globalErrorHandler';
+const app: Application = express();
 
-app.use(cors())
+app.use(cors());
 
 // parser
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Application router
-app.use('/api/v1/user', userRouter)
+app.use('/api/v1', router);
 
-// testing
-app.get('/', async (req: Request, res: Response) => {
-  res.send('Working successfully')
-})
+//testing
+// app.get('/', (req: Request, res: Response, next: NextFunction) => {
+//     // throw new ApiError(400, "🔥 Error ")
+//     Promise.reject(new Error('unhendled rejection'))
+//     // next()
+// })
 
-export default app
+// global error handler
+app.use(globalErrorHandler);
+
+export default app;

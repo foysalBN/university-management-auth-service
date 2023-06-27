@@ -1,0 +1,14 @@
+{
+	"files": [
+		{
+			"path": "src/middlewares/globalErrorHandler.ts",
+			"bookmarks": [
+				{
+					"line": 31,
+					"column": 29,
+					"label": "a"
+				}
+			]
+		}
+	]
+}
